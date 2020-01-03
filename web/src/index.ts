@@ -1,8 +1,9 @@
 import { User } from './models/User';
 
-const user = new User({});
+const user = new User({ name: 'newname', age: 20 });
 
-user.set({ name: 'newname', age: 9999 });
+user.on('change', () => {});
+user.on('change', () => {});
+user.on('gafgadf', () => {});
 
-console.log(user.get('name'));
-console.log(user.get('age'));
+console.log(user);
