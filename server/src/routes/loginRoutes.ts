@@ -1,4 +1,5 @@
 import { Router, Request, Response } from 'express';
+import { request } from 'http';
 
 interface RequestWithBody extends Request {
   body: { [key: string]: string | undefined };
@@ -38,17 +39,22 @@ router.get('/', (req: Request, res: Response) => {
     res.send(`
       <div>
         <div>You are logged in</div>
-        <a href="/logout"></>
+        <a href="/logout">Logout</>
       </div>
     `);
   } else {
     res.send(`
       <div>
         <div>You are not logged in</div>
-        <a href="/login"></>
+        <a href="/login">Login</>
       </div>
     `);
   }
+});
+
+router.get('/logout', (req: Request, res: Response) => {
+  req.session = undefined;
+  res.redirect('/');
 });
 
 export { router };
