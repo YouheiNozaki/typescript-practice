@@ -4,7 +4,12 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nodemon --exec ts-node ./src/server/index.tsx --compiler typescript --project tsconfig.json ",
+    "server": "ts-node-dev src/server/index",
+    "build:client": "webpack --mode production --config ./webpack.config.js",
+    "build:server": "webpack --mode production --config ./webpack.server.config.js",
+    "build": "yarn build:client && yarn build:server",
+    "start:prod": "node ./dist/server.js"
   },
   "author": "",
   "license": "ISC",
@@ -27,6 +32,13 @@
     "@types/mongoose": "^5.5.41",
     "@types/request": "^2.48.4",
     "concurrently": "^5.0.2",
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.2",
+    "ts-loader": "^6.2.1",
+    "ts-node": "^8.6.2",
+    "ts-node-dev": "^1.0.0-pre.44",
+    "typescript": "^3.7.5",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-node-externals": "^1.7.2"
   }
 }
