@@ -33,6 +33,7 @@
     "@types/request": "^2.48.4",
     "concurrently": "^5.0.2",
     "nodemon": "^2.0.2",
+    "prettier": "^1.19.1",
     "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
     "ts-node-dev": "^1.0.0-pre.44",
