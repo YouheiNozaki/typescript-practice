@@ -1,4 +1,5 @@
 import Express from 'express';
+
 import connectDB from '../../config/db';
 import UserRouter from './routes/api/user';
 import AuthRouter from './routes/api/auth';
@@ -9,6 +10,10 @@ const app = Express();
 
 // Connect Database
 connectDB();
+
+// Init Middleware
+app.use(Express.json());
+app.use(Express.urlencoded({ extended: true }));
 
 app.get('/', (req, res) => res.send('API Running'));
 
