@@ -1,14 +1,14 @@
 import mongoose from 'mongoose';
 
-interface User {
-  name: String;
-  email: String;
-  password: String;
-  avatar: String;
+export interface Usertype extends mongoose.Document {
+  name: string;
+  email: string;
+  password: string;
+  avatar: string;
   date: Date;
 }
 
-const UserSchema = new mongoose.Schema<User>({
+const UserSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
@@ -31,5 +31,5 @@ const UserSchema = new mongoose.Schema<User>({
   },
 });
 
-const User = mongoose.model('user', UserSchema);
+const User = mongoose.model<Usertype>('user', UserSchema);
 export default User;
